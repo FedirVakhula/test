@@ -1,0 +1,24 @@
+<div class="book-list">
+  <div class="new-book-container">
+    <mat-form-field appearance="fill">
+      <mat-label>Search</mat-label>
+      <input matInput [formControl]="searchControl" />
+    </mat-form-field>
+    <button mat-flat-button secondary (click)="onAddNewBook()">
+      <mat-icon>add</mat-icon>
+      Add new book
+    </button>
+  </div>
+  <div>
+    <div class="header-books-list">
+      <div class="book-title">Title</div>
+      <div class="book-author">Author</div>
+      <div class="book-year">Year</div>
+    </div>
+    <hr />
+
+    @for (book of books(); track book.id) {
+      <app-book-item [book]="book" (editBook)="onEditBook($event)"></app-book-item>
+    }
+  </div>
+</div>

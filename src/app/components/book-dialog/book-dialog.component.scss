@@ -1,0 +1,19 @@
+.book-form {
+  padding: 20px;
+
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .action {
+      display: flex;
+      gap: 16px;
+      margin-right: 16px;
+    }
+  }
+}
+
+mat-form-field {
+  width: 100%;
+}

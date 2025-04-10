@@ -1,0 +1,26 @@
+.book-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  cursor: pointer;
+
+  &-title {
+    width: 30%;
+  }
+
+  &-author {
+    width: 30%;
+  }
+
+  &-year {
+    text-align: end;
+    width: 30%;
+  }
+
+  &:hover {
+    background-color: var(--mdc-filled-text-field-container-color);
+    color: var(--mdc-filled-text-field-focus-label-text-color);
+    border-radius: 5px;
+  }
+}

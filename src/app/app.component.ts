@@ -5,15 +5,8 @@ import { RouterOutlet } from '@angular/router'
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet],
-  template: `<router-outlet />`,
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppComponent {
-  public readonly user = {
-    name: 'Jon',
-  }
-
-  getName() {
-    return this.user.name
-  }
-}
+export class AppComponent {}

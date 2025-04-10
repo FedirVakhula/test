@@ -1,13 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
 
-@tailwind components;
-@tailwind utilities;
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+:root {
+  --mdc-snackbar-container-color: var(--mdc-filled-text-field-container-color);
+  --mdc-snackbar-supporting-text-color: var(--mdc-filled-text-field-focus-label-text-color);
+}
+
+.mdc-text-field--filled.mdc-text-field--disabled .mdc-text-field__input {
+  cursor: pointer;
+
+  &:disabled {
+    color: var(--mat-option-selected-state-label-text-color);
+    cursor: not-allowed;
+  }
+}
 
 html,
 body {
   height: 100%;
 }
+
 body {
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

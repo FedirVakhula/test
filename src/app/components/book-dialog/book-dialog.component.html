@@ -1,0 +1,51 @@
+<div class="book-form-header">
+  <h2 mat-dialog-title>
+    {{ title }}
+  </h2>
+  @if (data) {
+    <div class="action">
+      <button mat-mini-fab (click)="allowEdit()">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-mini-fab (click)="onOpenDeleteBookDialog()">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  }
+</div>
+<form class="book-form" [formGroup]="bookForm">
+  <mat-form-field appearance="fill">
+    <mat-label>Book name</mat-label>
+    <input matInput formControlName="title" required [readonly]="data ? !isEditMode : false" />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Author</mat-label>
+    <input matInput formControlName="author" required [readonly]="data ? !isEditMode : false" />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Year of publication</mat-label>
+    <input matInput formControlName="year" type="number" required [readonly]="data ? !isEditMode : false" />
+  </mat-form-field>
+
+  <div mat-dialog-actions>
+    <button mat-button (click)="onCancel()">
+      {{ isEditMode || !data ? 'Cancel' : 'Close' }}
+    </button>
+    @if (isEditMode || !data) {
+      <button mat-button type="submit" [disabled]="bookForm.invalid || !bookForm.dirty" (click)="onSubmit()">
+        Save
+      </button>
+    }
+  </div>
+</form>
+
+<ng-template #deleteDialog>
+  <h2 mat-dialog-title>Delete book</h2>
+  <mat-dialog-content> Would you like to delete book? </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button mat-dialog-close>No</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Ok</button>
+  </mat-dialog-actions>
+</ng-template>

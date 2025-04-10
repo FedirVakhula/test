@@ -1,12 +1,8 @@
 import { Routes } from '@angular/router'
+import { BookListComponent } from './components/book-list/book-list.component'
 
 export const routes: Routes = [
-  {
-    path: '',
-    loadComponent: () => import('./pages/home/home.page'),
-  },
-  {
-    path: 'other',
-    loadComponent: () => import('./pages/other/other.page'),
-  },
+  { path: 'books', component: BookListComponent },
+  { path: '', redirectTo: 'books', pathMatch: 'full' },
+  { path: '**', redirectTo: 'books' },
 ]

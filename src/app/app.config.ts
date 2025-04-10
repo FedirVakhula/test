@@ -4,12 +4,14 @@ import { provideRouter, withComponentInputBinding, withRouterConfig } from '@ang
 
 import { routes } from './app.routes'
 import { provideMaterialConfig } from './material.provider'
+import { provideHttpClient } from '@angular/common/http'
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideAnimationsAsync(),
     provideMaterialConfig(),
+    provideHttpClient(),
 
     provideRouter(
       routes,
